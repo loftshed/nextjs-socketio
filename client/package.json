@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dayjs": "^1.11.1",
+    "dotenv": "^16.0.0",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0"
@@ -16,6 +18,5 @@
   "devDependencies": {
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5"
-  },
-  "proxy": "http://localhost:8000"
+  }
 }
