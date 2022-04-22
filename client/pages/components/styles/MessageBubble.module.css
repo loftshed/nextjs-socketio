@@ -5,7 +5,22 @@
   padding: 1px 7.5px;
 }
 
-.MessageBubbleContainer {
+.MessageBubbleHeading {
+  display: flex;
+  align-items: center;
+  font-family: Karla;
+  font-weight: 800;
+  color: #0c211d;
+  text-transform: lowercase;
+  font-size: 14px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 0px 2px 2px 2px;
+}
+
+.ContainerSent {
+  align-self: flex-end;
+  background-color: #cfdbd5;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -21,12 +36,76 @@
     100px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
-.Sent {
-  align-self: flex-end;
-  background-color: #cfdbd5;
-}
-
-.Recd {
+.ContainerRecd {
   align-self: flex-start;
   background-color: #44bba4;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: fit-content;
+  width: fit-content;
+  padding: 3px;
+  border-radius: 3px;
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.BubbleTipSent {
+  align-self: flex-end;
+  margin: 0px -9px -2px 0px;
+  width: 10px;
+}
+
+.BubbleTipRecd {
+  align-self: flex-end;
+  margin: 0px 0px -2px -9px;
+  width: 10px;
+}
+
+.Timestamp {
+  display: flex;
+  font-size: 10px;
+  align-self: flex-end;
+  color: #8d8d92;
+}
+
+.MessageBodySent {
+  align-self: flex-end;
+  background-color: #343a40;
+  display: flex;
+  word-wrap: break-word;
+  font-family: Karla;
+  font-weight: 400;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  padding: 3px 7px;
+  border-radius: 3px;
+  outline: 1px solid #393e41;
+}
+
+.MessageBodyRecd {
+  align-self: flex-start;
+  background-color: #46494c;
+  display: flex;
+  word-wrap: break-word;
+  font-family: Karla;
+  font-weight: 400;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  padding: 3px 7px;
+  border-radius: 3px;
+  outline: 1px solid #393e41;
+}
+
+.MessageBubbleSubcontainer {
+  display: flex;
+  justify-content: space-between;
 }
