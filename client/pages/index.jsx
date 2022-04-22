@@ -5,7 +5,9 @@ import { useState, useRef, useEffect } from "react";
 import SendButton from "./components/SendButton";
 import ScrollToNewest from "./components/ScrollToNewest";
 import MessageBubble from "./components/MessageBubble";
+import { v4 as uuidv4 } from "uuid";
 import dayjs from "dayjs";
+
 const socket = io("http://localhost:8000", { transports: ["websocket"] });
 
 export default function Home() {
@@ -13,13 +15,16 @@ export default function Home() {
   const [showAnim, setShowAnim] = useState(false);
   const [message, setMessage] = useState("");
 
-  useEffect(() => {}, []);
+  socket.on("newMessage", (data) => {
+    setCurrentMessages([...currentMessages, data]);
+  });
 
   const handleSendMessage = (ev) => {
     socket.emit("postMessage", { post: message });
     setCurrentMessages([
       ...currentMessages,
       {
+        id: uuidv4(),
         message: message,
         timestamp: dayjs().format(),
         author: "user",
@@ -44,13 +49,11 @@ export default function Home() {
           <h1 className={styles.ChatAppHeaderTitle}>socket.io chat</h1>
         </header>
         <div className={styles.ChatAppContainer}>
-          <div className={styles.ChatSidebarContainer}></div>
+          {/* <div className={styles.ChatSidebarContainer}></div> */}
           <div className={styles.ChatMessagesContainer}>
             <ul className={styles.ChatMessages}>
               {currentMessages.map((message) => {
-                return (
-                  <MessageBubble key={message.timestamp} message={message} />
-                );
+                return <MessageBubble key={message.id} message={message} />;
               })}
               <ScrollToNewest />
             </ul>
@@ -66,6 +69,7 @@ export default function Home() {
                 key="chatInput"
                 id="chatInput"
                 type="text"
+                autoComplete="off"
                 onChange={(ev) => {
                   setMessage(ev.target.value);
                 }}

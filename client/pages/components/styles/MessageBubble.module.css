@@ -34,6 +34,7 @@
     22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
     41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
     100px 100px 80px rgba(0, 0, 0, 0.07);
+  width: 85%;
 }
 
 .ContainerRecd {
@@ -52,17 +53,22 @@
     22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
     41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
     100px 100px 80px rgba(0, 0, 0, 0.07);
+  width: 85%;
 }
 
 .BubbleTipSent {
+  position: absolute;
   align-self: flex-end;
-  margin: 0px -9px -2px 0px;
+  right: -7.5px;
+  bottom: 1px;
   width: 10px;
 }
 
 .BubbleTipRecd {
+  position: absolute;
   align-self: flex-end;
-  margin: 0px 0px -2px -9px;
+  left: -7.5px;
+  bottom: 1px;
   width: 10px;
 }
 
@@ -87,6 +93,7 @@
   padding: 3px 7px;
   border-radius: 3px;
   outline: 1px solid #393e41;
+  color: lavenderblush;
 }
 
 .MessageBodyRecd {
@@ -103,6 +110,7 @@
   padding: 3px 7px;
   border-radius: 3px;
   outline: 1px solid #393e41;
+  color: #fde4cf;
 }
 
 .MessageBubbleSubcontainer {

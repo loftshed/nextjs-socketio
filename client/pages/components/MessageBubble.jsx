@@ -12,9 +12,7 @@ export default function MessageBubble({
     return (
       <li className={styles.MessageBubbleWrapper}>
         <div className={styles.ContainerRecd}>
-          <div className={styles.MessageBubbleHeading} recd={recd}>
-            @{author}
-          </div>
+          <div className={styles.MessageBubbleHeading}>@{author}</div>
           <div className={styles.MessageBubbleSubcontainer}>
             <img className={styles.BubbleTipRecd} src="/tip-received.svg" />
             <div className={styles.MessageBodyRecd}>
