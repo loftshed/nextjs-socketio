@@ -1,5 +1,6 @@
 "use strict";
 
+const dayjs = require("dayjs");
 const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
@@ -14,7 +15,13 @@ io.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("postMessage", (data) => {
     console.log(data);
-    // io.emit("newMessage", data);
+    const returnData = {
+      message: "wakka wakka wakka",
+      timestamp: dayjs().format(),
+      author: "other dude",
+      recd: true,
+    };
+    io.emit("newMessage", returnData);
   });
 });
 
