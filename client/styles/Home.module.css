@@ -1,9 +1,9 @@
-.container {
+.PageContainer {
   padding: 0 2rem;
   height: 100vh;
 }
 
-.main {
+.MainContainer {
   height: 100%;
   padding: 4rem 0;
   flex: 1;
@@ -14,7 +14,7 @@
   /* background-color: #6b6b6b; */
 }
 
-.header {
+.ChatAppHeader {
   width: 100%;
   display: block;
   text-align: center;
@@ -24,29 +24,147 @@
   font-size: 1rem;
 }
 
-.subcontainer {
+.ChatAppHeaderTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.ChatAppContainer {
   display: flex;
-  flex-direction: column;
-  background-color: #219ebc;
-  height: 100%;
   width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.messages {
-  display: flex;
   height: 100%;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: darkslategrey;
+  padding: 3px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #353535;
+  overflow: hidden;
 }
 
-.input {
+.ChatSidebarContainer {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: #fde4cf;
+  align-self: flex-start;
+  flex-direction: column;
+  width: 45%;
+  height: 100%;
+  padding: 5px 2px 5px 5px;
+  row-gap: 6px;
+  background-color: #1e1e1e;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 10px;
+}
+.ChatSidebarContainer::-webkit-scrollbar {
+  width: 4px;
+}
+.ChatSidebarContainer::-webkit-scrollbar-track {
+  background: #282828;
+}
+.ChatSidebarContainer::-webkit-scrollbar-thumb {
+  background: var(--color-pink);
+}
+
+@media (max-width: 425px) {
+  .ChatSidebarContainer {
+    width: 70px;
+    row-gap: 10px;
+  }
+}
+
+.ChatMessagesContainer {
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1e1e1e;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 10px;
+  padding: 3px;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+}
+
+.ChatMessages {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 5px;
+  padding: 6px 2px;
+  width: 100%;
+  height: calc(100% - 43px);
+  background-color: #353535;
+  overflow-y: scroll;
+  margin-bottom: 3px;
+}
+
+.ChatMessages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ChatMessages::-webkit-scrollbar-track {
+  background: #282828;
+  box-shadow: 0px 0px 1px inset #1e1e1e;
+}
+
+.ChatMessages::-webkit-scrollbar-thumb {
   border-radius: 10px;
+  background: #ef476f;
+}
+
+.ChatInputContainer {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  gap: 3px;
+}
+
+.ChatInputField {
+  width: 100%;
+  padding: 5px;
+  background-color: #444948;
+  border: 1px solid #353535;
+  line-height: 30px;
+  border-radius: 5px;
+}
+
+.ChatInputField:focus {
+  outline: 1px solid #44bba4;
+  box-shadow: inset 0px 0px 50px rgba(68, 187, 164, 0.2);
+}
+
+.ChatSendButton {
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  background-color: #353535;
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  height: 100%;
+  padding: 2px 10px;
+  margin: 0px 6px;
+  transition: all 0.1s ease;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+}
+
+.ChatSendButton > svg {
+  width: 30px;
+  height: 30px;
+}
+
+.ChatSendButton > svg:hover {
+  fill: #ef476f;
+  stroke: #1e1e1e;
+}
+
+.ChatSendButton:hover {
+  background-color: #44bba4;
+}
+
+.ChatSendButton:active {
+  background-color: #ef476f;
+}
+
+.ChatSendButton > svg:active {
+  transition: all 0.5s ease;
+  fill: #44bba4;
+  transform: translateX(40px);
 }
