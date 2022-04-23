@@ -73,6 +73,18 @@ export default function Home() {
                 onChange={(ev) => {
                   setMessage(ev.target.value);
                 }}
+                onKeyDown={(ev) => {
+                  console.log(ev);
+                  if (ev.code === "ArrowUp") {
+                    ev.preventDefault();
+                    ev.target.value =
+                      currentMessages[currentMessages.length - 2].message;
+                  }
+                  if (ev.code === "ArrowDown") {
+                    ev.preventDefault();
+                    ev.target.value = "";
+                  }
+                }}
               />
               <SendButton />
             </form>

@@ -34,7 +34,7 @@ const queryOpenAI = async (query) => {
     } = await openai.createCompletion("text-davinci-002", {
       prompt: query,
       max_tokens: 1000,
-      temperature: 0,
+      temperature: 0.9,
     });
     console.log(choices);
     return choices[0].text;
