@@ -16,8 +16,10 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(helmet());
 
+// --------------------------------------------------
+// OpenAI API
+// --------------------------------------------------
 const { OPENAI_API_KEY } = process.env;
-// app.use(cors());
 const configuration = new Configuration({
   organization: "org-2lVn6nnydYbQlsysIryU0TgK",
   apiKey: OPENAI_API_KEY,
@@ -26,14 +28,13 @@ const openai = new OpenAIApi(configuration);
 
 const queryOpenAI = async (query) => {
   try {
-    console.log("logging query", query);
-    // const { data } = await openai.retrieveEngine("text-davinci-002");
+    console.log("User query:", query); // logging the user's query to the bot
     const {
       data: { choices },
     } = await openai.createCompletion("text-davinci-002", {
       prompt: query,
-      max_tokens: 250,
-      temperature: 0.9,
+      max_tokens: 1000,
+      temperature: 0,
     });
     console.log(choices);
     return choices[0].text;
@@ -41,6 +42,9 @@ const queryOpenAI = async (query) => {
     console.log(err);
   }
 };
+// --------------------------------------------------
+// End of OpenAI API
+// --------------------------------------------------
 
 const io = new Server(httpServer, {
   cors: { origin: "*" },
@@ -57,17 +61,12 @@ io.on("connection", (socket) => {
         id: uuidv4(),
         message: botResponse,
         timestamp: dayjs().format(),
-        author: "other dude",
+        author: "OpenAI",
         recd: true,
       };
       io.emit("newMessage", returnData);
     } catch (error) {}
   });
-  // socket.on("callApi", (data) => {
-  //   console.log(data);
-  //   const returnMessage = queryOpenAI();
-  //   io.emit("apiReturn", returnMessage);
-  // });
 });
 
 httpServer.listen(8000);
