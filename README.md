@@ -1,3 +1,4 @@
-## highly distracting openAI chatbot
+> ## highly distracting openAI chatbot
 
-## going to abandon this for a while and focus on plain old react for a bit :)
+An interface for sending text to GPT-3 model text-davinci-002 from the OpenAI API, but not much else.
+Extremely hilarious and distracting. The chat component is sort of barely ported into NextJS from my [dowsr](https://github.com/loftshed/dowsr) project. Leaving this as-is to move on to better ideas :)
